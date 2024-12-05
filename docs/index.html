@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site avec Menu</title>
+    <title>Site avec Menu Déroulant</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -11,18 +11,27 @@
         <h1>Mon Site</h1>
         <nav class="menu">
             <ul>
+                <li><a href="index.html">Accueil</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropbtn">Menu</a>
-                    <div class="dropdown-content">
-                        <a href="page1.html">Page 1</a>
-                        <a href="page2.html">Page 2</a>
-                        <a href="page3.html">Page 3</a>
-                        <a href="page4.html">Page 4</a>
-                        <a href="page5.html">Page 5</a>
-                    </div>
+                    <a href="#">Pages</a>
+                    <ul class="dropdown-content">
+                        <li><a href="page1.html">Page 1</a></li>
+                        <li><a href="page2.html">Page 2</a></li>
+                        <li><a href="page3.html">Page 3</a></li>
+                    </ul>
                 </li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
+
+    <main>
+        <h2>Bienvenue sur mon site</h2>
+        <p>Voici une démonstration de menu déroulant simplifié.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mon Site</p>
+    </footer>
 </body>
 </html>
