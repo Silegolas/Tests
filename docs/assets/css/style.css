@@ -56,20 +56,24 @@ h1 {
 
 /* Sous-menu (par défaut caché) */
 .dropdown-content {
-    display: none;
+    display: none; /* Caché par défaut */
     position: absolute;
     top: 100%; /* Juste en-dessous du parent */
     left: 0;
     background-color: #333;
     min-width: 160px;
     z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-content li {
+    display: block;
 }
 
 .dropdown-content li a {
     padding: 10px 15px;
     color: white;
-    display: block;
-    text-align: left;
+    text-decoration: none;
 }
 
 .dropdown-content li a:hover {
@@ -78,5 +82,21 @@ h1 {
 
 /* Afficher le sous-menu au survol du bandeau */
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block; /* S'affiche uniquement au survol */
+}
+
+/* Main content */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
