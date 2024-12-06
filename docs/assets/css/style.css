@@ -75,51 +75,43 @@ main {
 
 /* Case Références par défaut */
 .references-toggle {
-    position: fixed; /* Position identique à la fenêtre */
-    top: 100px; /* Identique à la fenêtre des références */
-    left: 10px; /* Identique à la fenêtre des références */
-    width: 200px; /* Identique à la fenêtre des références */
-    height: auto; /* Automatique, mais ajusté par le contenu */
+    position: fixed;
+    top: 100px; /* Identique à la fenêtre */
+    left: 10px; /* Identique à la fenêtre */
+    width: 40px; /* Plus étroite pour ne pas empiéter sur le texte */
     background-color: #4CAF50; /* Couleur du bouton */
     color: white;
-    border: 1px solid #ccc; /* Bordure légère */
-    padding: 10px; /* Marges internes */
     text-align: center;
+    padding: 10px;
     cursor: pointer;
     border-radius: 5px; /* Coins arrondis */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Effet d'ombre identique */
-    font-size: 14px; /* Taille de texte par défaut */
-    z-index: 100; /* Assurez-vous qu'elle soit au-dessus des autres éléments */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    font-size: 18px; /* Texte réduit pour "R" */
 }
 
-.references-toggle h3 {
-    margin-top: 0; /* Ajustement de l'espace supérieur */
-    font-size: 16px; /* Taille de la police */
-    text-align: center;
-    cursor: pointer; /* Permet de cliquer pour fermer */
-    background-color: #4CAF50; /* Couleur du bandeau supérieur */
-    color: white; /* Texte blanc */
-    padding: 5px; /* Marges internes */
-    border-radius: 3px; /* Coins arrondis */
-}
-
-/* Ajustement de la fenêtre des références */
+/* Ajustement de la fenêtre des références (pleine largeur) */
 .references-box {
-    position: fixed; /* Identique à la case Références */
-    top: 100px; /* Identique à la case Références */
-    left: 10px; /* Identique à la case Références */
-    width: 200px; /* Identique à la case Références */
-    height: auto; /* Automatique, mais ajusté par le contenu */
-    background-color: #4CAF50; /* Couleur du bouton */
-    color: white;
-    border: 1px solid #ccc; /* Bordure légère */
-    padding: 10px; /* Marges internes */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Effet d'ombre identique */
-    font-size: 14px; /* Taille de texte par défaut */
-    overflow-y: auto; /* Barre de défilement si nécessaire */
-    max-height: calc(100vh - 150px); /* Empêche la fenêtre de dépasser l'écran */
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    width: 200px; /* Largeur étendue lorsqu'affichée */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    overflow-y: auto;
+    max-height: calc(100vh - 150px);
     display: none; /* Cachée par défaut */
-    z-index: 100; /* Affiche la fenêtre au-dessus de la case */
+    z-index: 101;
+}
+
+/* Ajustement du texte principal (décalé uniquement par la case étroite) */
+.content {
+    margin-left: 60px; /* Correspond à la largeur de la case étroite + un peu d'espace */
+    padding: 20px;
+    text-align: justify;
 }
 
 .references-box h3 {
