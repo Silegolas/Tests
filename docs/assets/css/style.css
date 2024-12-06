@@ -17,7 +17,7 @@ header {
 
 /* Style pour l'image */
 .header-logo {
-    width: 100px; /* Ajustez la taille */
+    width: 150px; /* Ajustez la taille */
     height: auto; /* Conserve les proportions */
     position: absolute;
     top: 10px; /* Ajuste l'écart par rapport au haut */
