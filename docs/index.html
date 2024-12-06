@@ -135,7 +135,19 @@
             toggle.style.display = 'block'; // Affiche la case
         }
     }
-</script>
+
+    function toggleSummary() {
+        const box = document.querySelector('.summary-box');
+        const toggle = document.querySelector('.summary-toggle');
+        if (box.style.display === 'none' || box.style.display === '') {
+            box.style.display = 'block'; // Affiche la fenêtre du sommaire
+            toggle.style.display = 'none'; // Cache la case
+        } else {
+            box.style.display = 'none'; // Cache la fenêtre du sommaire
+            toggle.style.display = 'block'; // Affiche la case
+        }
+    }
+</script>    
     
 </body>
 </html>
