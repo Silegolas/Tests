@@ -1,8 +1,9 @@
 /* Styles généraux */
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
 }
 
 header {
@@ -71,6 +72,7 @@ h1 {
 main {
     padding: 20px;
     text-align: center;
+        flex: 1; /* Permet au contenu principal de prendre tout l'espace disponible */
 }
 
 /* Case Références par défaut */
@@ -160,8 +162,7 @@ footer {
     background-color: #4CAF50;
     color: white;
     padding: 10px 0;
-    position: relative; /* Change de "fixed" à "relative" */
-    bottom: 0; /* Pas nécessaire avec "relative" */
+    position: relative;
     width: 100%;
-    margin-top: 20px; /* Ajoute de l'espace entre le contenu et le footer */
+    margin-top: 20px;
 }
