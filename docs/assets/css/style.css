@@ -75,8 +75,8 @@ main {
 
 .references-box {
     position: fixed;
-    top: 100px; /* Juste sous le header */
-    left: 10px; /* Collée au bord gauche */
+    top: 100px;
+    left: 10px;
     width: 200px;
     background-color: #f9f9f9;
     border: 1px solid #ccc;
@@ -84,7 +84,7 @@ main {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 14px;
     overflow-y: auto;
-    max-height: calc(100vh - 150px); /* Pour qu'elle reste visible sans dépasser l'écran */
+    max-height: calc(100vh - 150px);
 }
 
 .references-box h3 {
@@ -95,7 +95,7 @@ main {
 
 /* Zone de contenu */
 .content {
-    margin-left: 230px; /* Décalage pour laisser de la place à la boîte des références */
+    margin-left: 230px;
     padding: 20px;
     text-align: justify;
 }
@@ -108,6 +108,26 @@ main {
 
 .content a:hover {
     text-decoration: underline;
+}
+
+/* Intégration de l'image */
+figure {
+    margin: 20px auto;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+figcaption {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+    text-align: center;
 }
 
 footer {
