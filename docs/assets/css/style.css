@@ -1,10 +1,11 @@
 /* Styles généraux */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* Utilise Arial, avec sans-serif en fallback */
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Hauteur minimum de 100% de la fenêtre */
-    margin: 0;
+    min-height: 100vh; /* Conserve la structure */
 }
 
 header {
