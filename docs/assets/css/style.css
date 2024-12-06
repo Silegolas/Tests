@@ -128,7 +128,7 @@ main {
     position: fixed; /* Identique à Références */
     top: 130px; /* Même hauteur que le bouton Références */
     right: 10px; /* Aligné à droite */
-    width: 40px; /* Étroit comme le bouton Références */
+    width: 200px; /* Étroit comme le bouton Références */
     background-color: #4CAF50; /* Même style que Références */
     color: white;
     text-align: center;
@@ -143,7 +143,7 @@ main {
 /* Fenêtre Sommaire */
 .summary-box {
     position: fixed; /* Identique à la fenêtre Références */
-    top: 130px; /* Même hauteur que la case Références */
+    top: 200px; /* Même hauteur que la case Références */
     right: 10px; /* Aligné à droite */
     width: 200px; /* Largeur étendue lorsqu'affichée */
     background-color: #f9f9f9; /* Couleur de fond */
