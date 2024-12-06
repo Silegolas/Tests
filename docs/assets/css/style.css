@@ -82,7 +82,7 @@ main {
 .cases-container {
     position: fixed;
     top: 70px; /* Au-dessus des fenêtres */
-    left: 40px; /* Alignées à gauche */
+    left: 60px; /* Alignées à gauche */
     display: flex;
     gap: 10px; /* Espacement entre les deux cases */
     z-index: 200; /* Toujours au-dessus des fenêtres */
@@ -113,7 +113,7 @@ main {
 .references-box, .summary-box {
     position: fixed;
     top: 140px; /* Sous les cases */
-    left: 10px;
+    left: 15px;
     width: 200px; /* Largeur des fenêtres */
     background-color: #f9f9f9;
     border: 1px solid #ccc;
