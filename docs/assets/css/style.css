@@ -70,9 +70,10 @@ h1 {
 
 /* Main content */
 main {
-    padding: 20px;
-    text-align: center;
-        flex: 1; /* Permet au contenu principal de prendre tout l'espace disponible */
+    flex: 1; /* Permet au contenu de s'étirer pour remplir l'espace */
+    padding-bottom: 20px; /* Ajoute de l'espace au bas pour éviter que le footer touche le contenu */
+    margin: 0;
+    text-align: justify;
 }
 
 /* Case Références par défaut */
