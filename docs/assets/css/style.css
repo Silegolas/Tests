@@ -123,6 +123,51 @@ main {
     border-radius: 3px; /* Coins arrondis */
 }
 
+/* Case Sommaire par défaut */
+.summary-toggle {
+    position: fixed; /* Identique à Références */
+    top: 100px; /* Même hauteur que le bouton Références */
+    right: 10px; /* Aligné à droite */
+    width: 40px; /* Étroit comme le bouton Références */
+    background-color: #4CAF50; /* Même style que Références */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    font-size: 18px; /* Texte réduit pour "Sommaire" */
+}
+
+/* Fenêtre Sommaire */
+.summary-box {
+    position: fixed; /* Identique à la fenêtre Références */
+    top: 100px; /* Même hauteur que la case Références */
+    right: 10px; /* Aligné à droite */
+    width: 200px; /* Largeur étendue lorsqu'affichée */
+    background-color: #f9f9f9; /* Couleur de fond */
+    border: 1px solid #ccc; /* Bordure légère */
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 14px; /* Texte normal */
+    overflow-y: auto; /* Barre de défilement si nécessaire */
+    max-height: calc(100vh - 150px); /* Empêche la fenêtre de dépasser l'écran */
+    display: none; /* Cachée par défaut */
+    z-index: 101;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer; /* Permet de cliquer pour fermer */
+    background-color: #4CAF50; /* Couleur du bandeau supérieur */
+    color: white;
+    padding: 5px;
+    border-radius: 3px; /* Coins arrondis */
+}
+
 /* Zone de contenu */
 .content {
     margin-left: 230px;
