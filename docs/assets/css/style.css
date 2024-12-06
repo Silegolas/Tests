@@ -73,6 +73,22 @@ main {
     text-align: center;
 }
 
+/* Case Références par défaut */
+.references-toggle {
+    position: fixed;
+    top: 100px;
+    left: 10px;
+    width: 200px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustement de la fenêtre des références */
 .references-box {
     position: fixed;
     top: 100px;
@@ -85,12 +101,18 @@ main {
     font-size: 14px;
     overflow-y: auto;
     max-height: calc(100vh - 150px);
+    display: none; /* Cachée par défaut */
 }
 
 .references-box h3 {
     margin-top: 0;
     font-size: 16px;
     text-align: center;
+    cursor: pointer; /* Permet de cliquer pour fermer */
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
 }
 
 /* Zone de contenu */
