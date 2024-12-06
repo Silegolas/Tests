@@ -27,26 +27,29 @@
 
      <main>
         <!-- Fenêtre des références -->
-        <div class="references-box">
-            <h3>Références</h3>
-            <ul>
-                <li id="ref1">[1] Explication pour la référence 1.</li>
-                <li id="ref2">[2] Détail de la source citée pour la référence 2.</li>
-                <li id="ref3">[3] Informations complémentaires pour la référence 3.</li>
-                <li id="ref4">[4] Référence à une étude pertinente.</li>
-                <li id="ref5">[5] Extrait d'une publication scientifique.</li>
-                <li id="ref6">[6] Source primaire sur le sujet.</li>
-                <li id="ref7">[7] Données statistiques associées.</li>
-                <li id="ref8">[8] Contexte historique de l'analyse.</li>
-                <li id="ref9">[9] Note explicative pour le lecteur.</li>
-                <li id="ref10">[10] Exemple illustratif.</li>
-                <li id="ref11">[11] Analyse détaillée.</li>
-                <li id="ref12">[12] Caution scientifique.</li>
-                <li id="ref13">[13] Étude complémentaire.</li>
-                <li id="ref14">[14] Point de vue critique.</li>
-                <li id="ref15">[15] Citation pertinente.</li>
-            </ul>
-        </div>
+        <div class="references-toggle" onclick="toggleReferences()">Références</div>
+
+<!-- Fenêtre des références (cachée par défaut) -->
+<div class="references-box" style="display: none;">
+    <h3 onclick="toggleReferences()">Références</h3>
+    <ul>
+        <li id="ref1">[1] Explication pour la référence 1.</li>
+        <li id="ref2">[2] Détail de la source citée pour la référence 2.</li>
+        <li id="ref3">[3] Informations complémentaires pour la référence 3.</li>
+        <li id="ref4">[4] Référence à une étude pertinente.</li>
+        <li id="ref5">[5] Extrait d'une publication scientifique.</li>
+        <li id="ref6">[6] Source primaire sur le sujet.</li>
+        <li id="ref7">[7] Données statistiques associées.</li>
+        <li id="ref8">[8] Contexte historique de l'analyse.</li>
+        <li id="ref9">[9] Note explicative pour le lecteur.</li>
+        <li id="ref10">[10] Exemple illustratif.</li>
+        <li id="ref11">[11] Analyse détaillée.</li>
+        <li id="ref12">[12] Caution scientifique.</li>
+        <li id="ref13">[13] Étude complémentaire.</li>
+        <li id="ref14">[14] Point de vue critique.</li>
+        <li id="ref15">[15] Citation pertinente.</li>
+    </ul>
+</div>
 
         <!-- Texte principal -->
         <div class="content">
@@ -103,5 +106,20 @@
     <footer>
         <p>&copy; 2024 Mon Site</p>
     </footer>
+
+    <script>
+    function toggleReferences() {
+        const box = document.querySelector('.references-box');
+        const toggle = document.querySelector('.references-toggle');
+        if (box.style.display === 'none' || box.style.display === '') {
+            box.style.display = 'block'; // Affiche la fenêtre des références
+            toggle.style.display = 'none'; // Cache la case
+        } else {
+            box.style.display = 'none'; // Cache la fenêtre des références
+            toggle.style.display = 'block'; // Affiche la case
+        }
+    }
+</script>
+    
 </body>
 </html>
