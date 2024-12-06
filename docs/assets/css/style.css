@@ -84,7 +84,6 @@ main {
     top: 70px; /* Au-dessus des fenêtres */
     left: 10px; /* Alignées à gauche */
     display: flex;
-    flex-direction: column;
     gap: 10px; /* Espacement entre les deux cases */
     z-index: 200; /* Toujours au-dessus des fenêtres */
 }
@@ -113,7 +112,7 @@ main {
 /* Fenêtre Références */
 .references-box, .summary-box {
     position: fixed;
-    top: 130px; /* Sous les cases */
+    top: 140px; /* Sous les cases */
     left: 10px;
     width: 200px; /* Largeur des fenêtres */
     background-color: #f9f9f9;
