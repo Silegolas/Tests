@@ -126,7 +126,7 @@ main {
 /* Case Sommaire par défaut */
 .summary-toggle {
     position: fixed; /* Identique à Références */
-    top: 100px; /* Même hauteur que le bouton Références */
+    top: 130px; /* Même hauteur que le bouton Références */
     right: 10px; /* Aligné à droite */
     width: 40px; /* Étroit comme le bouton Références */
     background-color: #4CAF50; /* Même style que Références */
@@ -143,7 +143,7 @@ main {
 /* Fenêtre Sommaire */
 .summary-box {
     position: fixed; /* Identique à la fenêtre Références */
-    top: 100px; /* Même hauteur que la case Références */
+    top: 130px; /* Même hauteur que la case Références */
     right: 10px; /* Aligné à droite */
     width: 200px; /* Largeur étendue lorsqu'affichée */
     background-color: #f9f9f9; /* Couleur de fond */
@@ -171,6 +171,7 @@ main {
 /* Zone de contenu */
 .content {
     margin-left: 230px;
+    margin-right: 60px; /* Décalage pour le bouton Sommaire à droite */
     padding: 20px;
     text-align: justify;
 }
