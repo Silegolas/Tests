@@ -78,88 +78,61 @@ main {
     text-align: justify;
 }
 
-.references-toggle {
+/* Conteneur pour aligner les cases */
+.cases-container {
     position: fixed;
-    top: 130px;
-    left: 10px;
-    width: 200px;
-    height: auto;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    font-size: 18px;
+    top: 70px; /* Au-dessus des fenêtres */
+    left: 10px; /* Alignées à gauche */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les deux cases */
+    z-index: 200; /* Toujours au-dessus des fenêtres */
 }
 
-.references-box {
+/* Style des cases */
+.references-toggle, .summary-toggle {
+    width: 50px; /* Carrées */
+    height: 50px; /* Carrées */
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; /* Taille des icônes */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Icônes */
+.references-toggle .icon,
+.summary-toggle .icon {
+    font-size: 24px; /* Taille des icônes */
+}
+
+/* Fenêtre Références */
+.references-box, .summary-box {
     position: fixed;
-    top: 130px;
+    top: 130px; /* Sous les cases */
     left: 10px;
-    width: 200px;
+    width: 200px; /* Largeur des fenêtres */
     background-color: #f9f9f9;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 14px;
-    overflow-y: auto;
-    max-height: calc(100vh - 150px);
-    display: none;
-    z-index: 101;
+    overflow-y: auto; /* Barre de défilement si nécessaire */
+    max-height: calc(100vh - 200px); /* Gère la hauteur */
+    display: none; /* Cachée par défaut */
+    z-index: 101; /* Sous les cases */
 }
 
-.references-box h3 {
+/* Titre des fenêtres */
+.references-box h3, .summary-box h3 {
     margin-top: 0;
     font-size: 16px;
     text-align: center;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px;
-    border-radius: 3px;
-}
-
-.summary-toggle {
-    position: fixed;
-    top: 130px;
-    right: 10px;
-    width: 200px;
-    height: auto;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-    font-size: 18px;
-}
-
-.summary-box {
-    position: fixed;
-    top: 130px;
-    right: 10px;
-    width: 200px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
-    overflow-y: auto;
-    max-height: calc(100vh - 150px);
-    display: none;
-    z-index: 101;
-}
-
-.summary-box h3 {
-    margin-top: 0;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
+    cursor: pointer; /* Permet de fermer la fenêtre */
     background-color: #4CAF50;
     color: white;
     padding: 5px;
