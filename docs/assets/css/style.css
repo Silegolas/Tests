@@ -90,6 +90,17 @@ main {
     z-index: 100; /* Assurez-vous qu'elle soit au-dessus des autres éléments */
 }
 
+.references-toggle h3 {
+    margin-top: 0; /* Ajustement de l'espace supérieur */
+    font-size: 16px; /* Taille de la police */
+    text-align: center;
+    cursor: pointer; /* Permet de cliquer pour fermer */
+    background-color: #4CAF50; /* Couleur du bandeau supérieur */
+    color: white; /* Texte blanc */
+    padding: 5px; /* Marges internes */
+    border-radius: 3px; /* Coins arrondis */
+}
+
 /* Ajustement de la fenêtre des références */
 .references-box {
     position: fixed; /* Identique à la case Références */
