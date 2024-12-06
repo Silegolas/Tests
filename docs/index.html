@@ -111,12 +111,18 @@
     function toggleReferences() {
         const box = document.querySelector('.references-box');
         const toggle = document.querySelector('.references-toggle');
+        const content = document.querySelector('.content');
+
         if (box.style.display === 'none' || box.style.display === '') {
-            box.style.display = 'block'; // Affiche la fenêtre des références
+            // Affiche la fenêtre des références
+            box.style.display = 'block';
             toggle.style.display = 'none'; // Cache la case
+            content.style.marginLeft = '230px'; // Décale le texte en fonction de la fenêtre étendue
         } else {
-            box.style.display = 'none'; // Cache la fenêtre des références
-            toggle.style.display = 'block'; // Affiche la case
+            // Cache la fenêtre des références et montre la case réduite
+            box.style.display = 'none';
+            toggle.style.display = 'block';
+            content.style.marginLeft = '60px'; // Ramène le texte près de la case étroite
         }
     }
 </script>
