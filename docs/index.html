@@ -115,28 +115,38 @@
 <script>
     function toggleReferences() {
         const box = document.querySelector('.references-box');
-        const toggle = document.querySelector('.references-toggle');
+        const toggleSummary = document.querySelector('.summary-box');
+
+        // Cacher la fenêtre du sommaire si elle est ouverte
+        if (toggleSummary.style.display === 'block') {
+            toggleSummary.style.display = 'none';
+        }
+
+        // Afficher ou cacher la fenêtre Références
         if (box.style.display === 'none' || box.style.display === '') {
-            box.style.display = 'block'; // Affiche la fenêtre des références
-            toggle.style.display = 'none'; // Cache la case
+            box.style.display = 'block'; // Affiche la fenêtre
         } else {
-            box.style.display = 'none'; // Cache la fenêtre des références
-            toggle.style.display = 'block'; // Affiche la case
+            box.style.display = 'none'; // Cache la fenêtre
         }
     }
 
     function toggleSummary() {
         const box = document.querySelector('.summary-box');
-        const toggle = document.querySelector('.summary-toggle');
+        const toggleReferences = document.querySelector('.references-box');
+
+        // Cacher la fenêtre des références si elle est ouverte
+        if (toggleReferences.style.display === 'block') {
+            toggleReferences.style.display = 'none';
+        }
+
+        // Afficher ou cacher la fenêtre Sommaire
         if (box.style.display === 'none' || box.style.display === '') {
-            box.style.display = 'block'; // Affiche la fenêtre du sommaire
-            toggle.style.display = 'none'; // Cache la case
+            box.style.display = 'block'; // Affiche la fenêtre
         } else {
-            box.style.display = 'none'; // Cache la fenêtre du sommaire
-            toggle.style.display = 'block'; // Affiche la case
+            box.style.display = 'none'; // Cache la fenêtre
         }
     }
-</script>    
+</script>
     
 </body>
 </html>
