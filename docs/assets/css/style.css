@@ -82,11 +82,13 @@ main {
     height: auto; /* Automatique, mais ajusté par le contenu */
     background-color: #4CAF50; /* Couleur du bouton */
     color: white;
+    border: 1px solid #ccc; /* Bordure légère */
+    padding: 10px; /* Marges internes */
     text-align: center;
-    padding: 10px; /* Marges internes identiques */
     cursor: pointer;
     border-radius: 5px; /* Coins arrondis */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Effet d'ombre identique */
+    font-size: 14px; /* Taille de texte par défaut */
     z-index: 100; /* Assurez-vous qu'elle soit au-dessus des autres éléments */
 }
 
@@ -107,7 +109,9 @@ main {
     top: 100px; /* Identique à la case Références */
     left: 10px; /* Identique à la case Références */
     width: 200px; /* Identique à la case Références */
-    background-color: #f9f9f9; /* Couleur de fond pour différencier */
+    height: auto; /* Automatique, mais ajusté par le contenu */
+    background-color: #4CAF50; /* Couleur du bouton */
+    color: white;
     border: 1px solid #ccc; /* Bordure légère */
     padding: 10px; /* Marges internes */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Effet d'ombre identique */
@@ -115,7 +119,7 @@ main {
     overflow-y: auto; /* Barre de défilement si nécessaire */
     max-height: calc(100vh - 150px); /* Empêche la fenêtre de dépasser l'écran */
     display: none; /* Cachée par défaut */
-    z-index: 101; /* Affiche la fenêtre au-dessus de la case */
+    z-index: 100; /* Affiche la fenêtre au-dessus de la case */
 }
 
 .references-box h3 {
