@@ -160,7 +160,8 @@ footer {
     background-color: #4CAF50;
     color: white;
     padding: 10px 0;
-    position: fixed;
-    bottom: 0;
+    position: relative; /* Change de "fixed" à "relative" */
+    bottom: 0; /* Pas nécessaire avec "relative" */
     width: 100%;
+    margin-top: 20px; /* Ajoute de l'espace entre le contenu et le footer */
 }
