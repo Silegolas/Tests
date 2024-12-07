@@ -194,3 +194,7 @@ footer {
     width: 100%;
     margin-top: 10px; /* Sépare légèrement le footer du contenu principal */
 }
+
+ul li a.active {
+    font-weight: bold;
+}
