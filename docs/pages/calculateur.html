@@ -3,13 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculateur Index Egapro</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Conclusion - Egapro LVSDD</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <img src="../assets/images/logoenqueteegapro.JPG" alt="Logo Egapro" class="header-logo">
 </head>
 <body>
-    <header>
-        <h1>Calculateur Index Egapro</h1>
-    </header>
+    <div class="cases-container">
+    <div class="references-toggle" onclick="toggleReferences()">
+        <span class="icon">❝</span>
+    </div>
+    <div class="summary-toggle" onclick="toggleSummary()">
+        <span class="icon">☰</span>
+    </div>
+</div>
+
+<div class="references-box" style="display: none;">
+    <h3 onclick="toggleReferences()">Références</h3>
+    <ul>
+        <li id="ref1">[1] Explication pour la référence 1.</li>
+        <li id="ref2">[2] Détail de la source citée pour la référence 2.</li>
+        <li id="ref3">[3] Informations complémentaires pour la référence 3.</li>
+        <li id="ref4">[4] Référence à une étude pertinente.</li>
+        <li id="ref5">[5] Extrait d'une publication scientifique.</li>
+        <li id="ref6">[6] Source primaire sur le sujet.</li>
+        <li id="ref7">[7] Données statistiques associées.</li>
+        <li id="ref8">[8] Contexte historique de l'analyse.</li>
+        <li id="ref9">[9] Note explicative pour le lecteur.</li>
+        <li id="ref10">[10] Exemple illustratif.</li>
+        <li id="ref11">[11] Analyse détaillée.</li>
+        <li id="ref12">[12] Caution scientifique.</li>
+        <li id="ref13">[13] Étude complémentaire.</li>
+        <li id="ref14">[14] Point de vue critique.</li>
+        <li id="ref15">[15] Citation pertinente.</li>
+    </ul>
+</div>
+
+<!-- Fenêtre Sommaire (inchangée) -->
+<div class="summary-box" style="display: none;">
+    <h3 onclick="toggleSummary()">Sommaire</h3>
+    <ul>
+        <li><a href="../index.html">Page d'accueil</a></li>
+        <li><a href="intro.html">Introduction</a></li>
+        <li><a href="historique.html">Partie 1 : Historique</a></li>
+        <li><a href="mesure.html">Partie 2 : Mesure</a></li>
+        <li><a href="limites.html">Partie 3 : Limites</a></li>
+        <li><a href="conclu.html" class="active">Conclusion</a></li>
+        <li><a href="interview.html">Interview avec ...</a></li>
+        <li><a href="sources.html">Sources</a></li>
+    </ul>
+</div>
+
+        <div class="content">
+            <p align="justify">
+                Calculateur de l'index Egapro</p>
     <main>
         <form id="egapro-form">
             <h2>Entrez les données de votre entreprise :</h2>
@@ -54,6 +100,48 @@
         <h2>Résultat :</h2>
         <p id="resultat">Entrez vos données et cliquez sur "Calculer l'index".</p>
     </main>
+    <footer>
+        <p>&copy; 2024 LVSDD Egapro</p>
+    </footer>
+
+<script>
+    function toggleReferences() {
+        const box = document.querySelector('.references-box');
+        const toggleSummary = document.querySelector('.summary-box');
+
+        // Cacher la fenêtre du sommaire si elle est ouverte
+        if (toggleSummary.style.display === 'block') {
+            toggleSummary.style.display = 'none';
+        }
+
+        // Afficher ou cacher la fenêtre Références
+        if (box.style.display === 'none' || box.style.display === '') {
+            box.style.display = 'block'; // Affiche la fenêtre
+        } else {
+            box.style.display = 'none'; // Cache la fenêtre
+        }
+    }
+
+    function toggleSummary() {
+        const box = document.querySelector('.summary-box');
+        const toggleReferences = document.querySelector('.references-box');
+
+        // Cacher la fenêtre des références si elle est ouverte
+        if (toggleReferences.style.display === 'block') {
+            toggleReferences.style.display = 'none';
+        }
+
+        // Afficher ou cacher la fenêtre Sommaire
+        if (box.style.display === 'none' || box.style.display === '') {
+            box.style.display = 'block'; // Affiche la fenêtre
+        } else {
+            box.style.display = 'none'; // Cache la fenêtre
+        }
+    }
+</script>
+    
+</body>
+    
 </body>
     
 <script>
