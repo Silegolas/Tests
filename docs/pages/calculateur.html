@@ -156,26 +156,29 @@
 
 document.getElementById("calculer-index").addEventListener("click", function () {
     // Récupérer les valeurs du formulaire
+    const totalFemmes = parseInt(document.getElementById("total-femmes").value);
+    const totalHommes = parseInt(document.getElementById("total-hommes").value);
+    const effectifTotal = totalFemmes + totalHommes; // Calcul après avoir défini totalFemmes et totalHommes
+
     const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
     const femmesAugmentees = parseInt(document.getElementById("femmes-augmentees").value);
-    const totalFemmes = parseInt(document.getElementById("total-femmes").value);
     const hommesAugmentes = parseInt(document.getElementById("hommes-augmentes").value);
-    const totalHommes = parseInt(document.getElementById("total-hommes").value);
     const femmesPromues = parseInt(document.getElementById("femmes-promues").value) || 0;
     const hommesPromus = parseInt(document.getElementById("hommes-promus").value) || 0;
     const pctConge = parseFloat(document.getElementById("pct-conge").value);
     const sousRepresente = parseInt(document.getElementById("sous-represente").value);
-    const effectifTotal = totalFemmes + totalHommes;
-    togglePromotionsSection();
-    function togglePromotionsSection() {
-    const promotionsSection = document.getElementById("promotions-section");
-    if (effectifTotal > 250) {
-        promotionsSection.style.display = "block"; // Affiche la section
-    } else {
-        promotionsSection.style.display = "none"; // Masque la section
-    }
-}
 
+    // Fonction pour gérer la visibilité de la section promotions
+    function togglePromotionsSection() {
+        const promotionsSection = document.getElementById("promotions-section");
+        if (effectifTotal > 250) {
+            promotionsSection.style.display = "block"; // Affiche la section
+        } else {
+            promotionsSection.style.display = "none"; // Masque la section
+        }
+    }
+
+    togglePromotionsSection();
 
     // Fonction pour calculer les points de l'écart de rémunération selon le barème
     function calculPointsRemuneration(ecart) {
