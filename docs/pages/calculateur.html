@@ -76,15 +76,13 @@
         <form id="egapro-form">
             <h2>Entrez les données de votre entreprise :</h2>
 
-            <label for="effectif-total">Effectif total :</label>
-            <input type="number" id="effectif-total" required>
-
             <label for="total-femmes">Total de femmes :</label>
             <input type="number" id="total-femmes" required>
-            
+
             <label for="total-hommes">Total d'hommes :</label>
             <input type="number" id="total-hommes" required>
 
+            <h3>Écart de rémunérations</h3>            
             <label for="ecart-remuneration">Écart de rémunération (%) :</label>
             <input type="number" id="ecart-remuneration" required step="0.01">
 
@@ -158,7 +156,8 @@
 
 document.getElementById("calculer-index").addEventListener("click", function () {
     // Récupérer les valeurs du formulaire
-    const effectifTotal = parseInt(document.getElementById("effectif-total").value);
+    const effectifTotal = totalFemmes + totalHommes;
+    togglePromotionsSection();
     const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
     const femmesAugmentees = parseInt(document.getElementById("femmes-augmentees").value);
     const totalFemmes = parseInt(document.getElementById("total-femmes").value);
@@ -168,6 +167,15 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const hommesPromus = parseInt(document.getElementById("hommes-promus").value) || 0;
     const pctConge = parseFloat(document.getElementById("pct-conge").value);
     const sousRepresente = parseInt(document.getElementById("sous-represente").value);
+    function togglePromotionsSection() {
+    const promotionsSection = document.getElementById("promotions-section");
+    if (effectifTotal > 250) {
+        promotionsSection.style.display = "block"; // Affiche la section
+    } else {
+        promotionsSection.style.display = "none"; // Masque la section
+    }
+}
+
 
     // Fonction pour calculer les points de l'écart de rémunération selon le barème
     function calculPointsRemuneration(ecart) {
