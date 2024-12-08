@@ -198,3 +198,27 @@ footer {
 ul li a.active {
     font-weight: bold;
 }
+
+Pour que les liens du sommaire s'affichent en vert (comme votre bandeau), vous pouvez ajouter une règle CSS pour appliquer la couleur.
+
+Voici comment faire :
+CSS pour les liens du sommaire
+
+Ajoutez cette règle dans votre fichier CSS (style.css) pour styliser les liens dans le sommaire :
+
+/* Liens dans le sommaire */
+.summary-box ul li a {
+    color: #4CAF50; /* Vert du bandeau */
+    text-decoration: none; /* Supprime le soulignement par défaut */
+}
+
+/* Ajouter un effet au survol */
+.summary-box ul li a:hover {
+    text-decoration: underline; /* Souligne le lien au survol */
+}
+
+/* Lien actif (page actuelle) */
+.summary-box ul li a.active {
+    font-weight: bold;
+    color: #4CAF50; /* Vert du bandeau, pour cohérence */
+}
