@@ -172,9 +172,7 @@ document.getElementById("calculer-index").addEventListener("click", function () 
 
     const effectifTotal = totalFemmes + totalHommes;
 
-    togglePromotionsSection();
-
-    // Fonction pour calculer les points de l'écart de rémunération selon le barème
+    // Fonction pour calculer les points de l'écart de rémunération
     function calculPointsRemuneration(ecart) {
         if (ecart <= 0) return 40;
         if (ecart <= 1) return 39;
@@ -200,14 +198,14 @@ document.getElementById("calculer-index").addEventListener("click", function () 
         return 0;
     }
 
-    // Fonction pour calculer les points d'écart de taux d'augmentations selon le barème
+    // Fonction pour calculer les points d'écart de taux d'augmentations
     function calculPointsAugmentations(ecart, effectifTotal) {
-        if (effectifTotal > 250) { // Cas où les promotions sont applicables
+        if (effectifTotal > 250) {
             if (ecart <= 2) return 20;
             if (ecart <= 5) return 10;
             if (ecart <= 10) return 5;
             return 0;
-        } else { // Cas où les promotions ne sont pas applicables
+        } else {
             if (ecart <= 2) return 35;
             if (ecart <= 5) return 25;
             if (ecart <= 10) return 15;
@@ -222,28 +220,37 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const tauxAugmentationsFemmes = (femmesAugmentees / totalFemmes) * 100;
     const tauxAugmentationsHommes = (hommesAugmentes / totalHommes) * 100;
     const ecartAugmentations = Math.abs(tauxAugmentationsHommes - tauxAugmentationsFemmes);
-    let pointsAugmentations = calculPointsAugmentations(ecartAugmentations, effectifTotal);
+    const pointsAugmentations = calculPointsAugmentations(ecartAugmentations, effectifTotal);
 
+    // Calcul de l'écart de taux de promotions si applicable
     let pointsPromotions = 0;
     if (effectifTotal > 250) {
-        // Calcul de l'écart de taux de promotions si applicable
         const tauxPromotionsFemmes = (femmesPromues / totalFemmes) * 100;
         const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100;
         const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes);
-        pointsPromotions = ecartPromotions <= 10 ? 15 - Math.floor(ecartPromotions) : 0;
+        if (ecartPromotions <= 10) {
+            pointsPromotions = 15 - Math.ceil(ecartPromotions);
+        } else {
+            pointsPromotions = 0;
+        }
     }
 
-    // Congé maternité
+    // Points pour le congé maternité
     const pointsConge = pctConge === 100 ? 15 : 0;
 
-    // Sous-représentation
-    const pointsSousRepresente = sousRepresente >= 4 ? 10 : sousRepresente >= 2 ? 5 : 0;
+    // Points pour la sous-représentation
+    let pointsSousRepresente = 0;
+    if (sousRepresente >= 4) {
+        pointsSousRepresente = 10;
+    } else if (sousRepresente >= 2) {
+        pointsSousRepresente = 5;
+    }
 
-    // Calcul de l'index
+    // Calcul de l'index final
     const index = pointsRemuneration + pointsAugmentations + pointsPromotions + pointsConge + pointsSousRepresente;
 
-    // Afficher le résultat avec le détail des points
-     const resultat = document.getElementById("resultat");
+    // Afficher le résultat
+    const resultat = document.getElementById("resultat");
     resultat.style.display = "block"; // Rendre visible la fenêtre
     resultat.innerHTML = `
         <p><strong>Détails des points obtenus :</strong></p>
