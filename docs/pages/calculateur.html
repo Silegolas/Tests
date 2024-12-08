@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculateur Index Egapro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Calculateur Index Egapro</h1>
+    </header>
+    <main>
+        <form id="egapro-form">
+            <h2>Entrez les données de votre entreprise :</h2>
+
+            <label for="effectif-total">Effectif total :</label>
+            <input type="number" id="effectif-total" required>
+
+            <label for="ecart-remuneration">Écart de rémunération (%) :</label>
+            <input type="number" id="ecart-remuneration" required step="0.01">
+
+            <h3>Augmentations individuelles</h3>
+            <label for="femmes-augmentees">Nombre de femmes augmentées :</label>
+            <input type="number" id="femmes-augmentees" required>
+
+            <label for="total-femmes">Total de femmes :</label>
+            <input type="number" id="total-femmes" required>
+
+            <label for="hommes-augmentes">Nombre d'hommes augmentés :</label>
+            <input type="number" id="hommes-augmentes" required>
+
+            <label for="total-hommes">Total d'hommes :</label>
+            <input type="number" id="total-hommes" required>
+
+            <h3>Promotions (si applicable)</h3>
+            <label for="femmes-promues">Nombre de femmes promues :</label>
+            <input type="number" id="femmes-promues">
+
+            <label for="hommes-promus">Nombre d'hommes promus :</label>
+            <input type="number" id="hommes-promus">
+
+            <h3>Congé maternité</h3>
+            <label for="pct-conge">Pourcentage de salariées augmentées après congé maternité :</label>
+            <input type="number" id="pct-conge" required step="0.01">
+
+            <h3>Représentation parmi les 10 plus hautes rémunérations</h3>
+            <label for="sous-represente">Nombre de salariés sous-représentés :</label>
+            <input type="number" id="sous-represente" required>
+
+            <button type="button" id="calculer-index">Calculer l'index</button>
+        </form>
+
+        <h2>Résultat :</h2>
+        <p id="resultat">Entrez vos données et cliquez sur "Calculer l'index".</p>
+    </main>
+</body>
+
+document.getElementById("calculer-index").addEventListener("click", function() {
+    // Récupérer les valeurs du formulaire
+    const effectifTotal = parseInt(document.getElementById("effectif-total").value);
+    const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
+    const femmesAugmentees = parseInt(document.getElementById("femmes-augmentees").value);
+    const totalFemmes = parseInt(document.getElementById("total-femmes").value);
+    const hommesAugmentes = parseInt(document.getElementById("hommes-augmentes").value);
+    const totalHommes = parseInt(document.getElementById("total-hommes").value);
+    const femmesPromues = parseInt(document.getElementById("femmes-promues").value) || 0;
+    const hommesPromus = parseInt(document.getElementById("hommes-promus").value) || 0;
+    const pctConge = parseFloat(document.getElementById("pct-conge").value);
+    const sousRepresente = parseInt(document.getElementById("sous-represente").value);
+
+    // Calculs des points
+    const pointsRemuneration = ecartRemuneration <= 15 ? 40 - Math.floor(ecartRemuneration) : 14;
+    const tauxAugmentationsFemmes = (femmesAugmentees / totalFemmes) * 100;
+    const tauxAugmentationsHommes = (hommesAugmentes / totalHommes) * 100;
+    const ecartAugmentations = Math.abs(tauxAugmentationsHommes - tauxAugmentationsFemmes);
+    const pointsAugmentations = ecartAugmentations <= 10 ? 35 - Math.floor(ecartAugmentations) : 0;
+
+    let pointsPromotions = 0;
+    if (effectifTotal > 250) {
+        const tauxPromotionsFemmes = (femmesPromues / totalFemmes) * 100;
+        const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100;
+        const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes);
+        pointsPromotions = ecartPromotions <= 10 ? 15 - Math.floor(ecartPromotions) : 0;
+    }
+
+    const pointsConge = pctConge === 100 ? 15 : 0;
+    const pointsSousRepresente = sousRepresente >= 4 ? 10 : sousRepresente >= 2 ? 5 : 0;
+
+    // Calcul de l'index
+    const index = pointsRemuneration + pointsAugmentations + pointsPromotions + pointsConge + pointsSousRepresente;
+
+    // Afficher le résultat
+    document.getElementById("resultat").innerText = `Votre index Egapro est de ${index} points sur 100.`;
+});
+  
+</html>
+
