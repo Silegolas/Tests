@@ -55,8 +55,9 @@
         <p id="resultat">Entrez vos données et cliquez sur "Calculer l'index".</p>
     </main>
 </body>
-
-document.getElementById("calculer-index").addEventListener("click", function() {
+    
+<script>
+    document.getElementById("calculer-index").addEventListener("click", function() {
     // Récupérer les valeurs du formulaire
     const effectifTotal = parseInt(document.getElementById("effectif-total").value);
     const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
@@ -93,6 +94,6 @@ document.getElementById("calculer-index").addEventListener("click", function() {
     // Afficher le résultat
     document.getElementById("resultat").innerText = `Votre index Egapro est de ${index} points sur 100.`;
 });
+</script>
   
 </html>
-
