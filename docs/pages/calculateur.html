@@ -126,8 +126,18 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     // Calcul de l'index
     const index = pointsRemuneration + pointsAugmentations + pointsPromotions + pointsConge + pointsSousRepresente;
 
-    // Afficher le résultat
-    document.getElementById("resultat").innerText = `Votre index Egapro est de ${index} points sur 100.`;
+    // Afficher le résultat avec le détail des points
+    document.getElementById("resultat").innerHTML = `
+        <p><strong>Détails des points obtenus :</strong></p>
+        <ul>
+            <li><strong>Écart de rémunération :</strong> ${pointsRemuneration} points</li>
+            <li><strong>Écart de taux d'augmentations :</strong> ${pointsAugmentations} points</li>
+            <li><strong>Écart de taux de promotions :</strong> ${pointsPromotions} points</li>
+            <li><strong>Congé maternité :</strong> ${pointsConge} points</li>
+            <li><strong>Sous-représentation parmi les 10 plus hautes rémunérations :</strong> ${pointsSousRepresente} points</li>
+        </ul>
+        <p><strong>Index Egapro total :</strong> ${index} points sur 100</p>
+    `;
 });
 
 </script>
