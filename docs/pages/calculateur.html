@@ -243,10 +243,9 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const index = pointsRemuneration + pointsAugmentations + pointsPromotions + pointsConge + pointsSousRepresente;
 
     // Afficher le résultat avec le détail des points
-    const resultat = document.getElementById("resultat");
+     const resultat = document.getElementById("resultat");
     resultat.style.display = "block"; // Rendre visible la fenêtre
     resultat.innerHTML = `
-        <p><strong>Index Egapro total :</strong> ${index}</p>
         <p><strong>Détails des points obtenus :</strong></p>
         <ul>
             <li><strong>Écart de rémunération :</strong> ${pointsRemuneration} points</li>
@@ -255,6 +254,7 @@ document.getElementById("calculer-index").addEventListener("click", function () 
             <li><strong>Congé maternité :</strong> ${pointsConge} points</li>
             <li><strong>Sous-représentation parmi les 10 plus hautes rémunérations :</strong> ${pointsSousRepresente} points</li>
         </ul>
+        <p><strong>Index Egapro total :</strong> ${index} points sur 100</p>
     `;
 });
 
