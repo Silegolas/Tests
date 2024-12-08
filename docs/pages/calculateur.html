@@ -156,8 +156,6 @@
 
 document.getElementById("calculer-index").addEventListener("click", function () {
     // Récupérer les valeurs du formulaire
-    const effectifTotal = totalFemmes + totalHommes;
-    togglePromotionsSection();
     const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
     const femmesAugmentees = parseInt(document.getElementById("femmes-augmentees").value);
     const totalFemmes = parseInt(document.getElementById("total-femmes").value);
@@ -167,6 +165,8 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const hommesPromus = parseInt(document.getElementById("hommes-promus").value) || 0;
     const pctConge = parseFloat(document.getElementById("pct-conge").value);
     const sousRepresente = parseInt(document.getElementById("sous-represente").value);
+    const effectifTotal = totalFemmes + totalHommes;
+    togglePromotionsSection();
     function togglePromotionsSection() {
     const promotionsSection = document.getElementById("promotions-section");
     if (effectifTotal > 250) {
