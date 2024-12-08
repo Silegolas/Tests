@@ -96,6 +96,21 @@ document.getElementById("calculer-index").addEventListener("click", function () 
         return 0;
     }
 
+    // Fonction pour calculer les points d'écart de taux d'augmentations selon le barème
+    function calculPointsAugmentations(ecart, effectifTotal) {
+        if (effectifTotal > 250) { // Cas où les promotions sont applicables
+            if (ecart <= 2) return 20;
+            if (ecart <= 5) return 10;
+            if (ecart <= 10) return 5;
+            return 0;
+        } else { // Cas où les promotions ne sont pas applicables
+            if (ecart <= 2) return 35;
+            if (ecart <= 5) return 25;
+            if (ecart <= 10) return 15;
+            return 0;
+        }
+    }
+
     // Calcul des points
     const pointsRemuneration = calculPointsRemuneration(ecartRemuneration);
 
@@ -103,7 +118,7 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const tauxAugmentationsFemmes = (femmesAugmentees / totalFemmes) * 100;
     const tauxAugmentationsHommes = (hommesAugmentes / totalHommes) * 100;
     const ecartAugmentations = Math.abs(tauxAugmentationsHommes - tauxAugmentationsFemmes);
-    let pointsAugmentations = ecartAugmentations <= 10 ? 35 - Math.floor(ecartAugmentations) : 0;
+    let pointsAugmentations = calculPointsAugmentations(ecartAugmentations, effectifTotal);
 
     let pointsPromotions = 0;
     if (effectifTotal > 250) {
@@ -112,9 +127,6 @@ document.getElementById("calculer-index").addEventListener("click", function () 
         const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100;
         const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes);
         pointsPromotions = ecartPromotions <= 10 ? 15 - Math.floor(ecartPromotions) : 0;
-
-        // Limiter les points de l'indicateur augmentations à 20
-        pointsAugmentations = Math.min(pointsAugmentations, 20);
     }
 
     // Congé maternité
