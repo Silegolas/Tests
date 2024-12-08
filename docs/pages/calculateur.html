@@ -70,8 +70,34 @@ document.getElementById("calculer-index").addEventListener("click", function () 
     const pctConge = parseFloat(document.getElementById("pct-conge").value);
     const sousRepresente = parseInt(document.getElementById("sous-represente").value);
 
-    // Calculs des points
-    const pointsRemuneration = ecartRemuneration <= 15 ? 40 - Math.floor(ecartRemuneration) : 14;
+    // Fonction pour calculer les points de l'écart de rémunération selon le barème
+    function calculPointsRemuneration(ecart) {
+        if (ecart <= 0) return 40;
+        if (ecart <= 1) return 39;
+        if (ecart <= 2) return 38;
+        if (ecart <= 3) return 37;
+        if (ecart <= 4) return 36;
+        if (ecart <= 5) return 35;
+        if (ecart <= 6) return 34;
+        if (ecart <= 7) return 33;
+        if (ecart <= 8) return 31;
+        if (ecart <= 9) return 29;
+        if (ecart <= 10) return 27;
+        if (ecart <= 11) return 25;
+        if (ecart <= 12) return 23;
+        if (ecart <= 13) return 21;
+        if (ecart <= 14) return 19;
+        if (ecart <= 15) return 17;
+        if (ecart <= 16) return 14;
+        if (ecart <= 17) return 11;
+        if (ecart <= 18) return 8;
+        if (ecart <= 19) return 5;
+        if (ecart <= 20) return 2;
+        return 0;
+    }
+
+    // Calcul des points
+    const pointsRemuneration = calculPointsRemuneration(ecartRemuneration);
 
     // Calcul de l'écart de taux d'augmentations
     const tauxAugmentationsFemmes = (femmesAugmentees / totalFemmes) * 100;
