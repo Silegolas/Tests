@@ -57,7 +57,7 @@
 </body>
     
 <script>
-    document.getElementById("calculer-index").addEventListener("click", function() {
+document.getElementById("calculer-index").addEventListener("click", function () {
     // Récupérer les valeurs du formulaire
     const effectifTotal = parseInt(document.getElementById("effectif-total").value);
     const ecartRemuneration = parseFloat(document.getElementById("ecart-remuneration").value);
@@ -72,20 +72,29 @@
 
     // Calculs des points
     const pointsRemuneration = ecartRemuneration <= 15 ? 40 - Math.floor(ecartRemuneration) : 14;
+
+    // Calcul de l'écart de taux d'augmentations
     const tauxAugmentationsFemmes = (femmesAugmentees / totalFemmes) * 100;
     const tauxAugmentationsHommes = (hommesAugmentes / totalHommes) * 100;
     const ecartAugmentations = Math.abs(tauxAugmentationsHommes - tauxAugmentationsFemmes);
-    const pointsAugmentations = ecartAugmentations <= 10 ? 35 - Math.floor(ecartAugmentations) : 0;
+    let pointsAugmentations = ecartAugmentations <= 10 ? 35 - Math.floor(ecartAugmentations) : 0;
 
     let pointsPromotions = 0;
     if (effectifTotal > 250) {
+        // Calcul de l'écart de taux de promotions si applicable
         const tauxPromotionsFemmes = (femmesPromues / totalFemmes) * 100;
         const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100;
         const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes);
         pointsPromotions = ecartPromotions <= 10 ? 15 - Math.floor(ecartPromotions) : 0;
+
+        // Limiter les points de l'indicateur augmentations à 20
+        pointsAugmentations = Math.min(pointsAugmentations, 20);
     }
 
+    // Congé maternité
     const pointsConge = pctConge === 100 ? 15 : 0;
+
+    // Sous-représentation
     const pointsSousRepresente = sousRepresente >= 4 ? 10 : sousRepresente >= 2 ? 5 : 0;
 
     // Calcul de l'index
@@ -94,6 +103,7 @@
     // Afficher le résultat
     document.getElementById("resultat").innerText = `Votre index Egapro est de ${index} points sur 100.`;
 });
+
 </script>
   
 </html>
