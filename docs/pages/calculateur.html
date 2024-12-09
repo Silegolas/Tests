@@ -224,16 +224,26 @@ document.getElementById("calculer-index").addEventListener("click", function () 
 
     // Calcul de l'écart de taux de promotions si applicable
     let pointsPromotions = 0;
-    if (effectifTotal > 250) {
-        const tauxPromotionsFemmes = (femmesPromues / totalFemmes) * 100;
-        const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100;
-        const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes);
-        if (ecartPromotions <= 10) {
-            pointsPromotions = 15 - Math.ceil(ecartPromotions);
-        } else {
-            pointsPromotions = 0;
-        }
+
+if (effectifTotal > 250) {
+    // Calcul des taux de promotions
+    const tauxPromotionsFemmes = (femmesPromues / totalFemmes) * 100 || 0;
+    const tauxPromotionsHommes = (hommesPromus / totalHommes) * 100 || 0;
+
+    // Calcul de l'écart global de taux de promotions
+    const ecartPromotions = Math.abs(tauxPromotionsHommes - tauxPromotionsFemmes).toFixed(1);
+
+    // Attribution des points selon le barème
+    if (ecartPromotions <= 2) {
+        pointsPromotions = 15;
+    } else if (ecartPromotions <= 5) {
+        pointsPromotions = 10;
+    } else if (ecartPromotions <= 10) {
+        pointsPromotions = 5;
+    } else {
+        pointsPromotions = 0;
     }
+}
 
     // Points pour le congé maternité
     const pointsConge = pctConge === 100 ? 15 : 0;
